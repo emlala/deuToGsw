@@ -1,4 +1,4 @@
-! Emmi Lahtisalo, 014163276
+! Emmi Lahtisalo
 ! Standard German - Swiss German translator
 
 clear stack
@@ -9,14 +9,14 @@ regex Lexicon ;
 
 ! Note that this list might not be exhaustive:
 
-define Vowel	[ a | e | i | o | u | ü | ä | ö | äi | ei | oi | äu | ou | iö | öi | uö| üö ] ;
+define Vowel	[ a | e | i | o | u | Ã¼ | Ã¤ | Ã¶ | Ã¤i | ei | oi | Ã¤u | ou | iÃ¶ | Ã¶i | uÃ¶| Ã¼Ã¶ ] ;
 define Cons	[ b | c | d | f | g | h | j | k | l | m | n | p | q | r | s | t | v | w | z ] ;
 
 
 define TeToT		[ t e -> t || _ .#. ] ;
 
 
-define ZehnToZää	[ e h n -> ä ä || [z] _ ] ; 
+define ZehnToZÃ¤Ã¤	[ e h n -> Ã¤ Ã¤ || [z] _ ] ; 
 ! 10
 
 define IgToG		[ i g -> g || [ s s | z ] _ ] ;
@@ -31,28 +31,28 @@ define StToScht		[ 0 -> c h || [ e r | g ] [s] _ [t] ] ;
 define 0ToI 		[ 0 -> i || [g] _ {scht} ] ; 
 ! all ordinals >= 20
 
-define NTo0		[ n -> 0 || [ e | i | h | ü ] _ ]  ; 
+define NTo0		[ n -> 0 || [ e | i | h | Ã¼ ] _ ]  ; 
 ! 1, 5, 7, 10 
 
-define EiToÄi		[ {ei} -> {äi} ] ; 
+define EiToÃ„i		[ {ei} -> {Ã¤i} ] ; 
 ! 1, 2,
 
-define EToÄ		[ e -> ä || _ [ c h | u ] ] ; 
+define EToÃ„		[ e -> Ã¤ || _ [ c h | u ] ] ; 
 ! 6, 9, this and the previous one could be combined but left separate to keep things clear
 
-define fünf		[ {füf} -> {föif} || _ [ .#. | t | u ] ] ; 
+define fÃ¼nf		[ {fÃ¼f} -> {fÃ¶if} || _ [ .#. | t | u ] ] ; 
 ! 5, 5.
 
-define ÄToÜ		[ ä -> ü || [ r | n ] _  ] ; 
+define Ã„ToÃœ		[ Ã¤ -> Ã¼ || [ r | n ] _  ] ; 
 ! 3, 9
 
-define UIToÜ		[ [ i | u ] -> ü || [ü] _ ] ; 
+define UIToÃœ		[ [ i | u ] -> Ã¼ || [Ã¼] _ ] ; 
 ! 3, 9
 
-define ÜüToI		[ ü ü -> i || _ [z] ] ; 
+define ÃœÃ¼ToI		[ Ã¼ Ã¼ -> i || _ [z] ] ; 
 ! 13
 
-define ÜüToY		[ ü ü -> y || _ [s] ] ; 
+define ÃœÃ¼ToY		[ Ã¼ Ã¼ -> y || _ [s] ] ; 
 ! 30
 
 define sibet		[ 0 -> e || [b] _ [t] ] ; 
@@ -61,33 +61,33 @@ define sibet		[ 0 -> e || [b] _ [t] ] ;
 define ETo0		[ e -> 0 || [i] _ [b] ] ; 
 ! 7
 
-define UndToE		[ {und} -> e || [ n | i | r | f | s | ü | t | e ] _ ] ;
+define UndToE		[ {und} -> e || [ n | i | r | f | s | Ã¼ | t | e ] _ ] ;
 
 
-define ÄiToÄin		[ 0 -> n || .#. {äi} _ [e] ] ; 
+define Ã„iToÃ„in		[ 0 -> n || .#. {Ã¤i} _ [e] ] ; 
 ! ein-und...
 
-define sibe		[ [ 0 | ä ] -> e || [b] _ [ z g i | u ] ] ;
+define sibe		[ [ 0 | Ã¤ ] -> e || [b] _ [ z g i | u ] ] ;
 ! 17., sieben-und...
 
 
 read regex Lexicon .o.
 TeToT .o. 
-ZehnToZää .o. 
+ZehnToZÃ¤Ã¤ .o. 
 IgToG .o. 
 SsToS .o. 
 StToScht .o. 
 0ToI .o. 
 NTo0 .o. 
-EiToÄi .o.
-EToÄ .o.
-fünf .o. 
-ÄToÜ .o.
-UIToÜ .o.
-ÜüToI .o. 
-ÜüToY .o. 
+EiToÃ„i .o.
+EToÃ„ .o.
+fÃ¼nf .o. 
+Ã„ToÃœ .o.
+UIToÃœ .o.
+ÃœÃ¼ToI .o. 
+ÃœÃ¼ToY .o. 
 sibet .o.
 ETo0 .o.
 UndToE .o.
-ÄiToÄin .o.
+Ã„iToÃ„in .o.
 sibe ;
