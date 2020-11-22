@@ -1,6 +1,6 @@
 # German to Swiss German xfst translator
 
-This is a course project for a Language Technology course called Morphological Processing Tools 2. 
+This is a course project for a Language Technology course called Morphological Processing Tools 2, spring 2017. 
 
 The purpose of this project was to get familiar with more traditional computational linguistics methods, using xfst script with an added lexicon file. This helped me to grasp the complexity of using rule-based systems for language technology purposes.
 
